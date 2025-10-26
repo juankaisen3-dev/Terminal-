@@ -1,0 +1,96 @@
+<img src="class=""" alt=""><!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Dãnïęl_Tech#Terminal</title>
+  <style>
+    body {
+      background-color: #0f0f0f;
+      color: #00ffcc;
+      font-family: monospace;
+      padding: 50px;
+      text-align: center;
+    }
+
+    #terminal {
+      background-color: #111;
+      border: 2px solid #00ffcc;
+      padding: 20px;
+      border-radius: 10px;
+      width: 80%;
+      margin: auto;
+      box-shadow: 0 0 15px #00ffcc;
+    }
+
+    input {
+      width: 80%;
+      padding: 10px;
+      font-size: 1em;
+      background-color: #222;
+      color: #00ffcc;
+      border: none;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+
+    #output {
+      margin-top: 20px;
+      text-align: left;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧠 Dãnïęl_Tech Terminal</h1>
+  <div id="terminal">
+    <input type="text" id="commandInput" placeholder="Tape une commande (profil, badges, dev, help,setup,)" onkeydown="handleKey(event)">
+    <div id="output"></div>
+  </div>
+
+  <script>
+    function handleKey(e) {
+      if (e.key === "Enter") {
+        const input = document.getElementById("commandInput").value.trim().toLowerCase();
+        const output = document.getElementById("output");
+        let response = "";
+
+        switch (input) {
+          case "profil":
+            response = "Nom : DANIEL_Tech\nÂge : 19\nRôle : Hacker\nMetier : Programmeur java concepteur des logiciels Techniques, intelligence artificielle et robotique ";
+            break;
+            
+            
+            
+          case "badges":
+            response = "🎖️ Badges débloqués :\n- Code Master\n- Terminal Lord\n- Arcade Architect";
+            break;
+            
+          case "dev":
+            response = "💻 Mode développeur activé !\nModules : [Dãnïęl_Tech Explorer, Badge Collector, Engine Lab]";
+            break;
+          case "help":
+            response = "📚 Commandes : profil, badges, dev,setup, help, clear";
+            break;
+            
+            case "setup":
+                response = "☠️formalité : veux tu que je te pirate ou bien,tkt je vais forcément te piraté 🤣";
+              
+            break;
+            
+          case "clear":
+            output.innerText = "";
+            document.getElementById("commandInput").value = "";
+            return;
+          default:
+            response = "⛔ à mande --> inconnue. Tape `help` pour la liste.";
+        }
+
+        output.innerText += `\nDaniel€test> ${input}\n${response}\n`;
+        document.getElementById("commandInput").value = "";
+      }
+    }
+  </script>
+</body>
+</html>
